@@ -6,4 +6,14 @@
 
 {% block content %}
   <p>{{ guess }}</p>
+  <p>Was I right?</p>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {% for option in form.answer %}
+      {{ option }} {{ option.label }}<br>
+      {% endfor %}
+    </p>
+    {{ form.submit }}
+  </form>
 {% endblock %}
