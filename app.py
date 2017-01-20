@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 
 
 app = Flask(__name__)
@@ -16,12 +16,10 @@ def guess(id):
     return render_template('guess.html', guess=guesses[id])
 
 
-@app.route('/question/<int:id>')
+@app.route('/question/<int:id>', methods=['GET'])
 def question(id):
-    if id >= len(questions):
-        return redirect(url_for('index'))
-    else:
-        return render_template('question.html', question=questions[id], question_number=id)
+    print(request.__dict__)
+    return render_template('question.html', question=questions[id], question_number=id)
 
 
 if __name__ == '__main__':
