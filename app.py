@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'shhhh!!!secret'
 
 game = Guess('Python')
 game.expand('Python', 'C++', 'Is it interpreted?', False)
-# game.expand('C++', 'Java', 'Does it run on a VM?', True)
+game.expand('C++', 'Java', 'Does it run on a VM?', True)
 
 
 class YesNoQuestionForm(Form):
