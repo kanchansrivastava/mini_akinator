@@ -16,9 +16,13 @@ def guess(id):
     return render_template('guess.html', guess=guesses[id])
 
 
-@app.route('/question/<int:id>', methods=['GET'])
+@app.route('/question/<int:id>', methods=['GET', 'POST'])
 def question(id):
-    print(request.__dict__)
+    if request.method == 'POST':
+        if request.form['answer'] == 'yes':
+            return redirect(url_for('question', id=id+1))
+        else:
+            return redirect(url_for('question', id=id))
     return render_template('question.html', question=questions[id], question_number=id)
 
 
