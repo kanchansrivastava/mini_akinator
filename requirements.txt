@@ -2,3 +2,4 @@ Flask==0.12
 Flask-WTF==0.14.2
 ipython==5.1.0
 WTForms==2.1
+Flask-API==0.6.9
