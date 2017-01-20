@@ -1,9 +1,9 @@
-<html>
-  <head>
-    <title>Mini Akinator!!</title>
-  </head>
-  <body>
-    <h2>Think of your favorite programming language. I'm going to try to guess it!</h2>
-    <p>Ready? Click <a href="#">here</a> to begin!</p>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block heading %}
+  Think of your favorite programming language. I'm going to try to guess it!
+{% endblock %}
+
+{% block content %}
+  <p>Ready? Click <a href="#">here</a> to begin!</p>
+{% endblock %}

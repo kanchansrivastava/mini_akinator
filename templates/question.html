@@ -1,9 +1,9 @@
-<html>
-  <head>
-    <title>Mini Akinator!!</title></title>
-  </head>
-  <body>
-    <h2>Question No. {{ question_number + 1}}</h2>
+{% extends 'base.html' %}
+
+{% block heading %}
+  Question No. {{ question_number + 1}}
+{% endblock %}
+
+{% block content %}
     <p>{{ question }}</p>
-  </body>
-</html>
+{% endblock %}
