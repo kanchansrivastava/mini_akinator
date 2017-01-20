@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 from flask.ext.api import status
 
 
@@ -9,21 +9,17 @@ questions = ['Is it compiled?', 'Does it run on a VM?', 'Does it enforce indenta
 
 @app.route('/')
 def index():
-    return 'Welcome to Mini Akinator!!'
+    return render_template('index.html')
 
 
 @app.route('/guess/<int:id>')
 def guess(id):
-    return ('<h1>Mini Akinator!!</h1>'
-            '<p>My guess: <i>{0}</i></p>').format(guesses[id])
+    return render_template('guess.html', guess=guesses[id])
 
 
 @app.route('/question/<int:id>')
 def question(id):
-    # return '{0} What is correct answer? [Yes/No]'.format(questions[id])
-
-    return jsonify(msg='{0} What is correct answer? [Yes/No]'.format(
-        questions[id]), responseCode=status.HTTP_200_OK), status.HTTP_200_OK
+    return render_template('question.html', question=questions[id], question_number=id)
 
 
 if __name__ == '__main__':
